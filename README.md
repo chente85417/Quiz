@@ -5,7 +5,7 @@
 El proyecto Quiz se trata de una pequeña aplicación para mostrar un cuestionario de preguntas. Se presenta al usuario una serie de preguntas con un conjunto de respuestas optativas de las que sólamente una es la respuesta correcta.
 
 ### Link de GitHub
-https://github.com/chente85417/RampUp
+https://github.com/chente85417/Quiz
 
 ### Estructura
 El proyecto consta de las siguentes partes:
