@@ -1,0 +1,43 @@
+{
+  "qualification" : "undefined",
+  "questions" : {
+    "question1" : {
+      "options" : [ "No ha ganado ninguno", "Ha ganado 4", "Ha ganado 5", "Ha ganado 6" ],
+      "selected" : "undefined",
+      "solution" : 2,
+      "title" : "¿Cuántos Tour de Francia ha ganado Induráin?"
+    },
+    "question2" : {
+      "options" : [ "El Tourmalet", "El passo dello Stelvio", "El col de la Bonaigua", "El col de la Bonnette" ],
+      "selected" : "undefined",
+      "solution" : 3,
+      "title" : "¿Cuál es el puerto más alto transitado en un Tour, Giro o Vuelta?"
+    },
+    "question3" : {
+      "options" : [ "Perico Delgado", "Luis Ocaña", "Bahamontes", "Alberto Contador" ],
+      "selected" : "undefined",
+      "solution" : 2,
+      "title" : "¿Quién fué el primer español que ganó un Tour de Francia?"
+    },
+    "question4" : {
+      "options" : [ "Bishop", "Manolo", "Leonard", "Mc Quay" ],
+      "selected" : "undefined",
+      "solution" : 0,
+      "title" : "¿Cómo se llama el sintético de Alien?"
+    },
+    "question5" : {
+      "options" : [ "Doraimon", "La pantera de Granada", "El guepardo", "El león del Atlas" ],
+      "selected" : "undefined",
+      "solution" : 2,
+      "title" : "¿Cuál es el único felino que no tiene uñas retráctiles?"
+    },
+    "question6" : {
+      "options" : [ "Irlanda", "Islandia", "Japón", "Canadá" ],
+      "selected" : "undefined",
+      "solution" : "3",
+      "title" : "¿Cuál de los siguentes países no pertenece al IPC?"
+    }
+  },
+  "questionsCount" : 6,
+  "title" : "QUIZ, AHÍ VAN UNAS PREGUNTILLAS..."
+}

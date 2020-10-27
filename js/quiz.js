@@ -9,15 +9,32 @@ class Question{
 };
 
 class Quiz{
-    constructor(JQuiz)
+    constructor()
     {
-        this.title = JQuiz.title;
-        this.qualification  = JQuiz.qualification;
-        this.nodoQuiz = document.querySelector("form");
-        this.nodoSubmit = document.querySelector("#submitContainer");
-        this.colorLabelHover = "";
-        this.init(JQuiz.questions);
+        this.nodoQuiz           = document.querySelector("form");
+        this.nodoSubmit         = document.querySelector("#submitContainer");
+        this.colorLabelHover    = "";
+        this.questions          = [];
+
+        const promTitle = new Promise((resolve, reject) => {
+            firebase.database().ref("title").on("value", (snapshot) => {
+                this.title = snapshot.val();
+                resolve();
+            });
+        })
+        promTitle.then(() => {this.init()});
     };
+    init()
+    {
+        const promQuestions = new Promise((resolve, reject) => {
+            firebase.database().ref("questions").on('value', (dataSnapshot) => {
+                this.questions = Object.values(dataSnapshot.val()).map(question => new Question(question));
+                resolve();
+                })
+        });
+        promQuestions.then(() => {this.loadQuiz()});
+    }//init
+/*
     init(questions)
     {
         if (questions.length)
@@ -32,7 +49,7 @@ class Quiz{
             window.location.href = "#quiz";
         })
     }//init
-
+*/
     loadQuiz()
     {
         //Creamos en nodo contenedor de los títulos
@@ -225,8 +242,7 @@ class Quiz{
 };
 
 function init(){
-    let theQuiz = new Quiz(quiz);
-    theQuiz.loadQuiz();
+    const theQuiz = new Quiz();
 }//init
 
 //The one and only execution
