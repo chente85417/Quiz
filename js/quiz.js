@@ -16,40 +16,19 @@ class Quiz{
         this.colorLabelHover    = "";
         this.questions          = [];
 
-        const promTitle = new Promise((resolve, reject) => {
-            firebase.database().ref("title").on("value", (snapshot) => {
-                this.title = snapshot.val();
-                resolve();
-            });
-        })
-        promTitle.then(() => {this.init()});
+        fetch("http://localhost:8888/title").then(d => d.json()).then(d => {
+            this.title = d;
+            this.init();
+        });
     };
     init()
     {
-        const promQuestions = new Promise((resolve, reject) => {
-            firebase.database().ref("questions").on('value', (dataSnapshot) => {
-                this.questions = Object.values(dataSnapshot.val()).map(question => new Question(question));
-                resolve();
-                })
+        fetch("http://localhost:8888/questions").then(d => d.json()).then(d => {
+            this.questions = Object.values(d).map(question => new Question(question));
+            this.loadQuiz();
         });
-        promQuestions.then(() => {this.loadQuiz()});
     }//init
-/*
-    init(questions)
-    {
-        if (questions.length)
-        {
-            this.questions = questions.map(question => new Question(question));
-        }//if
-        //Capturamos el submit para la validación del lado front
-        this.nodoQuiz.addEventListener("submit", (evento) => {
-            evento.preventDefault();
-            //Se realiza la validación y corrección del cuestionario
-            this.corregir();
-            window.location.href = "#quiz";
-        })
-    }//init
-*/
+
     loadQuiz()
     {
         //Creamos en nodo contenedor de los títulos

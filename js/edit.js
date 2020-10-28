@@ -13,10 +13,8 @@ document.querySelector("#edit").addEventListener("submit", (evento) => {
 
     const solution = document.querySelector("input[name='option']:checked").value;
 
-    //Se pide a firebase el número de preguntas actualmente existentes
-    firebase.database().ref("questionsCount").once("value").then((snapshot) => {
-        //Se crea un nuevo objeto json para la nueva pregunta
-        let questionsNumber = snapshot.val();
+    fetch("http://localhost:8888/questionsCount").then(res => res.json()).then(data => {
+        let questionsNumber = data;
         ++questionsNumber;
         let key = `question${questionsNumber}`;
 
@@ -27,14 +25,19 @@ document.querySelector("#edit").addEventListener("submit", (evento) => {
             "options" : options,
             "solution" : solution,
             "selected" : "undefined"
-        }
+        };
 
-        //Insertamos la nueva pregunta y actualizamos el contador
-        firebase.database().ref("questions").update(question);
-        firebase.database().ref("questionsCount").set(questionsNumber);
-    });
-
-    
-
-    
+        fetch("http://localhost:8888/newQuestion", {
+            method: 'POST',
+            headers: {
+                'Access-Control-Allow-Origin' : '*',
+                'Access-Control-Allow-Headers' : '*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(question)
+            }
+        ).then(res => res.text()).then(data => {
+            console.log(data);
+        });
+    });   
 });
