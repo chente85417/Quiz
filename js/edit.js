@@ -37,7 +37,7 @@ document.querySelector("#edit").addEventListener("submit", (evento) => {
             body: JSON.stringify(question)
             }
         ).then(res => res.text()).then(data => {
-            console.log(data);
+            window.location.assign("quiz.html");
         });
     });   
 });

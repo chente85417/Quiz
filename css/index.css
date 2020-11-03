@@ -10,7 +10,7 @@ main{
 main img{
     height: 320px;
 }
-main div{
+#buttonContainer{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -54,5 +54,130 @@ main button{
         height: 2em;
         font-size: 2.5em;
         padding-bottom: 0%;
+    }
+    #edit{
+        position: absolute;
+        width: 100%;
+        height: 50vh;
+        margin-top: 4%;
+        top: -800px;
+    }
+    @keyframes movForm{
+        to{
+            top: 100px;
+        }
+    }
+    .movFormNewQuestion{
+        animation: movForm .5s cubic-bezier(0,.73,0,1.55) .5s;
+        animation-fill-mode: forwards;
+    }
+    .unvisible{
+        visibility: hidden;
+    }
+    #q{
+        display: flex;
+        flex-wrap: wrap;
+        width: 70%;
+        margin: auto;
+        background-color: white;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1.5em;
+        border-radius: 20px;
+        border: 1px solid;
+        box-shadow: 5px 5px 24px -7px #000000;
+    }
+    #contPreg{
+        width: 100%;
+        margin-top: .7em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #textoPregunta{
+        width: 90%;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1em;
+    }
+    #op{
+        width: 100%;
+        margin-top: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #opciones{
+        width: 86%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1em;
+    }
+    #contOptions{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+    }
+    .contOption{
+        width: 100%;
+        margin: .5em 0%;
+    }
+    #opciones input[type=radio]{
+        width: 5%;
+    }
+    #opciones input{
+        width: 90%;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1em;
+    }
+    #submitContainer{
+        width: 20%;
+        margin: auto;
+        text-align: center;
+    }
+    #submitContainer input{
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1.2em;
+    }
+
+    #loginContainer{
+        height: 15vh;
+        display: flex;
+        flex-wrap: wrap;
+        width: 35%;
+        justify-content: center;
+        margin: auto;
+        margin-top: 60vh;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.5em;
+    }
+    .editElements{
+        display: flex;
+        flex-wrap: wrap;
+        height: 50%;
+        width: 100%;
+        margin-top: .5em;
+    }
+    .editElements input{
+        width: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+    }
+    .editElements label{
+        height: 30%;
+    }
+    input[type=submit]{
+        height: 5vh;
+        margin-top: 1em;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+        border-radius: 6px;
+    }
+    #messageBox{
+        position: absolute;
+        top: 300px;
+        padding: 1em;
+        background-color: whitesmoke;
+        color: crimson;
+        box-shadow: 5px 5px 24px -7px #000000;
     }
 }
